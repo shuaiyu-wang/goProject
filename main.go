@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	)
+	"github.com/astaxie/beego/logs"
+)
 
 func main() {
 	var i *int
@@ -10,27 +11,33 @@ func main() {
 	//var name string = "wsy"
 	i = &a
 	a = *i
-	const CON  = "con"
+	const CON = "con"
 	//fmt.Println(i)
-	fmt.Printf("hello go %v , %v\n", i , a)
+	fmt.Printf("hello go %v , %v\n", i, a)
 
 	var j = 1
 	var m int
 	m = 2
 	var n int = 3
-	fmt.Printf("%v,%v,%v\n",j,m,n)
+	fmt.Printf("%v,%v,%v\n", j, m, n)
 
-	fmt.Println(Books{title:"aaa",author:"bbb",subject:"ccc",book_id:1})
+	fmt.Println(Books{title: "aaa", author: "bbb", subject: "ccc", book_id: 1})
 
 	mymap := make(map[string][]string)
-	myarr := []string{"1","2","3"}
+	myarr := []string{"1", "2", "3"}
 	mymap["a"] = myarr
-	fmt.Printf("%v,%v\n",mymap,myarr)
+	fmt.Printf("%v,%v\n", mymap, myarr)
+	logfileLoc := "/opt/logs/ylm-service/test.log"
+	logs.SetLogger(logs.AdapterFile, fmt.Sprintf(`{"filename":"%s"}`, logfileLoc))
+	logs.EnableFuncCallDepth(true)
+	logs.SetLogFuncCallDepth(2)
+	logs.Async()
+	logs.Info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 }
 
 type Books struct {
-	title string
-	author string
+	title   string
+	author  string
 	subject string
 	book_id int
 }

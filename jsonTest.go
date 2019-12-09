@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"ytherp/common/utils"
 )
 
 type Test struct {
@@ -17,10 +16,10 @@ func main() {
 	}
 	fmt.Println(test01)
 
-	var b []byte
-	json.Unmarshal(b, &test01)
-	mymap := utils.StructToMap(&test01)
-	fmt.Println(mymap)
+	//var b []byte
+	//json.Unmarshal(b, &test01)
+	//mymap := utils.StructToMap(&test01)
+	//fmt.Println(mymap)
 
 	str := ",..."
 	str += "xxx"
@@ -32,4 +31,10 @@ func main() {
 	flo = 1.41
 	//flo = fmt.Sprintf("%.0f", flo)
 	fmt.Printf("%.0f", flo)
+
+	str1 := "[{\"id\":\"1752\",\"name\":\"采购分仓\"},{\"id\":\"1753\",\"name\": \"采购分仓\"}]"
+
+	paramMap := make([]map[string]string, 0)
+	json.Unmarshal([]byte(str1), &paramMap)
+	fmt.Println(paramMap)
 }

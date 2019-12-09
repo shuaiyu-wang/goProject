@@ -1,10 +1,9 @@
 package main
 
 import (
+	"fmt"
 	_ "io/ioutil"
 	"os"
-	"fmt"
-	"reflect"
 )
 
 type students struct {
@@ -29,40 +28,40 @@ func main() {
 	//	return
 	//}
 
-	f, err := os.OpenFile("/tmp/test.txt", os.O_APPEND|os.O_WRONLY, 0644)
+	_, err := os.OpenFile("/tmp/test.txt", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0644)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	newLine := "File handling is easy."
+	//newLine := "File handling is easy."
+	////_, err = fmt.Fprintln(f, newLine)
 	//_, err = fmt.Fprintln(f, newLine)
-	_, err = fmt.Fprintln(f, newLine)
-	if err != nil {
-		fmt.Println(err)
-		f.Close()
-		return
-	}
-	err = f.Close()
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	fmt.Println("file appended successfully")
-	fmt.Println("xxx",new(students))
-	fmt.Println("xxx",students{Name:"wsy"}.Name)
-
-	fmt.Println("xxx", New("wsy2"))
-
-	i := new(int)
-	fmt.Println(*i)
-	b := new(bool)
-	fmt.Println(*b)
-
-	var a interface{}
-	reflect.ValueOf(a)
+	//if err != nil {
+	//	fmt.Println(err)
+	//	f.Close()
+	//	return
+	//}
+	//err = f.Close()
+	//if err != nil {
+	//	fmt.Println(err)
+	//	return
+	//}
+	//fmt.Println("file appended successfully")
+	//fmt.Println("xxx",new(students))
+	//fmt.Println("xxx",students{Name:"wsy"}.Name)
+	//
+	//fmt.Println("xxx", New("wsy2"))
+	//
+	//i := new(int)
+	//fmt.Println(*i)
+	//b := new(bool)
+	//fmt.Println(*b)
+	//
+	//var a interface{}
+	//reflect.ValueOf(a)
 
 }
 
 func New(name string) students {
-	return students{Name:name}
+	return students{Name: name}
 }
