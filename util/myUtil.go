@@ -1,9 +1,9 @@
-package main
+package util
 
 import (
-	"time"
 	"errors"
 	"fmt"
+	"time"
 )
 
 //获取两个日期间的所有日期
@@ -36,6 +36,6 @@ func TimeSub(t1, t2 time.Time) int {
 }
 
 func main() {
-	arr,_:=GetDayListByDateDiff("2019-10-30","2019-11-06")
+	arr, _ := GetDayListByDateDiff("2019-10-30", "2019-11-06")
 	fmt.Println(arr)
 }

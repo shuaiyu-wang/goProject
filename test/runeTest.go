@@ -1,8 +1,8 @@
-package main
+package test
 
 import (
 	"fmt"
-	)
+)
 
 func main() {
 	i := 65

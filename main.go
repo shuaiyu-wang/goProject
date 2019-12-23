@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/astaxie/beego/logs"
 )
 
 func main() {
@@ -27,12 +26,6 @@ func main() {
 	myarr := []string{"1", "2", "3"}
 	mymap["a"] = myarr
 	fmt.Printf("%v,%v\n", mymap, myarr)
-	logfileLoc := "/opt/logs/ylm-service/test.log"
-	logs.SetLogger(logs.AdapterFile, fmt.Sprintf(`{"filename":"%s"}`, logfileLoc))
-	logs.EnableFuncCallDepth(true)
-	logs.SetLogFuncCallDepth(2)
-	logs.Async()
-	logs.Info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 }
 
 type Books struct {

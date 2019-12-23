@@ -1,4 +1,4 @@
-package main
+package test
 
 type AllGoodsVo struct {
 	RowNum             int    `json:"row_num" description:"序号"`

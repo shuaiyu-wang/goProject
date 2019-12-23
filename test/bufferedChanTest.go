@@ -1,8 +1,8 @@
-package main
+package test
 
 import (
 	"fmt"
-	)
+)
 
 func write(ch chan int) {
 	for i := 0; i < 5; i++ {
@@ -15,6 +15,6 @@ func main() {
 	ch := make(chan string, 2)
 	ch <- "naveen"
 	//ch <- "paul"
-	fmt.Println(<- ch)
-	fmt.Println(<- ch)
+	fmt.Println(<-ch)
+	fmt.Println(<-ch)
 }

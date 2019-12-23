@@ -1,4 +1,4 @@
-package main
+package test
 
 import "fmt"
 
@@ -60,7 +60,7 @@ func main() {
 	//welcome := []string{"hello", "world"}
 	//change(welcome...)
 	//fmt.Println(welcome)
-	arr:=make([]string,4,4)
+	arr := make([]string, 4, 4)
 	change(arr...)
 	fmt.Println(arr)
 }

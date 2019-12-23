@@ -1,8 +1,8 @@
-package main
+package test
 
 import (
+	"errors"
 	"fmt"
-		"errors"
 )
 
 func main() {
@@ -20,15 +20,15 @@ func main() {
 	a()
 }
 
-func c() (i int,err error) {
+func c() (i int, err error) {
 	defer func() {
 		//start := time.Now()
 		//fmt.Println(i);
-		i++;
+		i++
 		fmt.Println(i)
 	}()
 	//time.Sleep(5*time.Second)
-	return 1,errors.New("xxx")
+	return 1, errors.New("xxx")
 }
 
 //func trace(funcName string) func(){
@@ -53,4 +53,3 @@ func a() {
 	fmt.Println("i=", i)
 	return
 }
-
