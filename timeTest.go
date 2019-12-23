@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"math/rand"
 	"strings"
 	"time"
@@ -37,6 +38,13 @@ func main() {
 	a = append(a[:i], a[i+1:]...)
 	fmt.Println(a)
 	fmt.Println("随机数", CreateNonceStr())
+	//两时间相减
+	now := time.Now()
+	fmt.Println(now)
+	newTime, _ := time.ParseInLocation("2006-01-02 15:04:05", "2019-12-23 09:56:00", time.Local)
+	fmt.Println(newTime)
+	sub := now.Sub(newTime)
+	fmt.Println(math.Ceil(sub.Minutes()))
 }
 
 func CreateNonceStr() string {

@@ -33,8 +33,10 @@ func main() {
 	fmt.Printf("%.0f", flo)
 
 	str1 := "[{\"id\":\"1752\",\"name\":\"采购分仓\"},{\"id\":\"1753\",\"name\": \"采购分仓\"}]"
-
+	//json转map
 	paramMap := make([]map[string]string, 0)
-	json.Unmarshal([]byte(str1), &paramMap)
-	fmt.Println(paramMap)
+	err := json.Unmarshal([]byte(str1), &paramMap)
+	fmt.Println(paramMap, err)
+	var list []int
+	fmt.Println("...", len(list) == 0, list == nil)
 }
