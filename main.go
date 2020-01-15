@@ -1,6 +1,6 @@
 package main
 
-import "goProject/zap"
+import "fmt"
 
 func main() {
 	//var i *int
@@ -24,13 +24,23 @@ func main() {
 	//myarr := []string{"1", "2", "3"}
 	//mymap["a"] = myarr
 	//fmt.Printf("%v,%v\n", mymap, myarr)
-	zap.Init()
-	zap.Logger.Info("zap------------test")
+	//zap.Init()
+	//zap.Logger.Info("zap------------test")
+	defer func() {
+		if info := recover(); info != nil {
+			fmt.Println("..................", info)
+		}
+	}()
+	test(0)
+}
+
+func test(num int) {
+	fmt.Println(1 / num)
 }
 
 type Books struct {
 	title   string
 	author  string
 	subject string
-	book_id int
+	bookId  int
 }
